@@ -1,7 +1,7 @@
 # ViewportQuickTheme
-You may occasionally want to change the background color of your viewport to make editing a particularly dark/bright mesh. 
+You may occasionally want to change the background color of your viewport to make editing a particularly dark/bright mesh easier. 
 
-While this is easy to do, you may find that your cameras/empties/lights etc disappear, and now need to be recolored. 
+While this is simple enough to do, you may find that your cameras/empties/lights etc disappear, and now need to be individually recolored. 
 
 This addon simplifies the process by giving a series of presets to quickly change the viewport background, grid lines and all cameras/empties/lights etc. with a single click, straight from the 3D Viewport.
 
