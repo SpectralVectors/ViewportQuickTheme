@@ -1,7 +1,7 @@
 bl_info = {
     "name": "Viewport QuickTheme",
     "author": "Spectral Vectors",
-    "version": (0, 1),
+    "version": (0, 2),
     "blender": (2, 90, 0),
     "location": "View 3D",
     "description": "Shortcuts and presets for the viewport theme",
@@ -25,8 +25,8 @@ def setviewport(self, context):
         
     if bpy.context.scene.vpqt_vars.presets == 'blackout':
         
-        bpy.context.scene.vpqt_vars.line_color4 = (1,1,1,0.5)
-        bpy.context.scene.vpqt_vars.line_color3 = (1,1,1)
+        bpy.context.scene.vpqt_vars.line_color4 = (0.8,0.8,0.8,0.3)
+        bpy.context.scene.vpqt_vars.line_color3 = (0.8,0.8,0.8)
         bpy.context.scene.vpqt_vars.color1 = (0,0,0)
         bpy.context.scene.vpqt_vars.color2 = (0.2,0.2,0.2)
         bpy.context.scene.vpqt_vars.bgtype = 'SINGLE_COLOR'
@@ -43,19 +43,19 @@ def setviewport(self, context):
         
     if bpy.context.scene.vpqt_vars.presets == 'blueprint':
         
-        bpy.context.scene.vpqt_vars.line_color4 = (1,1,1,0.3)
-        bpy.context.scene.vpqt_vars.line_color3 = (1,1,1)
-        bpy.context.scene.vpqt_vars.color1 = (0,0,1)
+        bpy.context.scene.vpqt_vars.line_color4 = (0.8,0.8,0.8,0.3)
+        bpy.context.scene.vpqt_vars.line_color3 = (0.8,0.8,0.8)
+        bpy.context.scene.vpqt_vars.color1 = (0,0,0.7)
         bpy.context.scene.vpqt_vars.color2 = (0,0,0.2)
         bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
         
         
     if bpy.context.scene.vpqt_vars.presets == 'matrix':
         
-        bpy.context.scene.vpqt_vars.line_color4 = [0, 1, 0, 0.3]
-        bpy.context.scene.vpqt_vars.line_color3 = (0,1,0)
-        bpy.context.scene.vpqt_vars.color1 = [0.01821, 0.17642, 0.000000]
-        bpy.context.scene.vpqt_vars.color2 = [0.002125, 0.049707, 0.000000]
+        bpy.context.scene.vpqt_vars.line_color4 = [0, 0.8, 0, 0.3]
+        bpy.context.scene.vpqt_vars.line_color3 = (0,0.8,0)
+        bpy.context.scene.vpqt_vars.color1 = [0.02, 0.133, 0]
+        bpy.context.scene.vpqt_vars.color2 = [0.004, 0.05, 0]
         bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
         
         
@@ -106,9 +106,33 @@ def setviewport(self, context):
         bpy.context.scene.vpqt_vars.color1 = [1,1,1]
         bpy.context.scene.vpqt_vars.color2 = [0.255, 0.267, 0.388]
         bpy.context.scene.vpqt_vars.bgtype = 'LINEAR'
+
+    if bpy.context.scene.vpqt_vars.presets == 'nightsky':
+        
+        bpy.context.scene.vpqt_vars.line_color4 = [1,1,1,0.1]
+        bpy.context.scene.vpqt_vars.line_color3 = [1,1,1]
+        bpy.context.scene.vpqt_vars.color1 = [0.031,0,0.122]
+        bpy.context.scene.vpqt_vars.color2 = [0,0,0]
+        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
+
+    if bpy.context.scene.vpqt_vars.presets == 'synthwave':
+        
+        bpy.context.scene.vpqt_vars.line_color4 = [0,0.204,0.525,0.3]
+        bpy.context.scene.vpqt_vars.line_color3 = [0,0.204,0.525]
+        bpy.context.scene.vpqt_vars.color1 = [0,0,0]
+        bpy.context.scene.vpqt_vars.color2 = [0.161, 0, 0.153]
+        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
+
+    if bpy.context.scene.vpqt_vars.presets == 'curtaincall':
+        
+        bpy.context.scene.vpqt_vars.line_color4 = [0.525,0.463,0,0.3]
+        bpy.context.scene.vpqt_vars.line_color3 = [0.525,0.463,0]
+        bpy.context.scene.vpqt_vars.color1 = [0.3,0,0.012]
+        bpy.context.scene.vpqt_vars.color2 = [0,0,0]
+        bpy.context.scene.vpqt_vars.bgtype = 'LINEAR'
     
     line_color4 = bpy.context.scene.vpqt_vars.line_color4
-    line_color3 = bpy.context.scene.vpqt_vars.line_color3
+    line_color3 = (line_color4[0],line_color4[1],line_color4[2])
     color1 = bpy.context.scene.vpqt_vars.color1
     color2 = bpy.context.scene.vpqt_vars.color2
     bgtype = bpy.context.scene.vpqt_vars.bgtype    
@@ -153,6 +177,10 @@ class ViewportQuickThemeVariables(bpy.types.PropertyGroup):
             ('sunrise','Sunrise','A red to yellow linear gradient with white lines'),
             ('petal','Petal','A mauve to purple gradient with pink lines'),
             ('arctic','Arctic','A white to grey-blue linear gradient with navy lines'),
+            ('nightsky','Night Sky','A black to navy blue gradient with white lines'),
+            ('synthwave','Synthwave','A black to purple gradient with blue lines'),
+            ('curtaincall','Curtain Call','A crimson to black linear gradient with gold lines'),
+
         ],
         update=setviewport,
     )
