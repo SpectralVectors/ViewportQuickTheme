@@ -27,3 +27,9 @@ Petal Preset:
 ![screenshot](/github_pics/petal.png)
 Arctic Preset:
 ![screenshot](/github_pics/arctic.png)
+Night Sky Preset:
+![screenshot](/github_pics/nightsky.png)
+Synthwave Preset:
+![screenshot](/github_pics/synthwave.png)
+Curtain Call Preset:
+![screenshot](/github_pics/curtaincall.png)
