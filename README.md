@@ -6,9 +6,9 @@ While this is simple enough to do, you may find that your cameras/empties/lights
 This addon simplifies the process by giving a series of presets to quickly change the viewport background, grid lines and all cameras/empties/lights etc. with a single click, straight from the 3D Viewport.
 
 Default Viewport:
-![screenshot](/github_pics/default.png)![screenshot](/github_pics/blackout.png)
+![screenshot](/github_pics/default.png)
 Blackout Preset:
-
+![screenshot](/github_pics/blackout.png)
 Whiteout Preset:
 ![screenshot](/github_pics/whiteout.png)
 Blueprint Preset:
