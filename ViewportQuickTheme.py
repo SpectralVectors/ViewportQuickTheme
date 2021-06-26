@@ -110,7 +110,7 @@ def setviewport(self, context):
     if bpy.context.scene.vpqt_vars.presets == 'nightsky':
         
         bpy.context.scene.vpqt_vars.line_color4 = [1,1,1,0.1]
-        bpy.context.scene.vpqt_vars.line_color3 = [1,1,1]
+        bpy.context.scene.vpqt_vars.line_color3 = [0.8,0.8,0.8]
         bpy.context.scene.vpqt_vars.color1 = [0.031,0,0.122]
         bpy.context.scene.vpqt_vars.color2 = [0,0,0]
         bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
