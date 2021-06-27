@@ -1,10 +1,10 @@
 bl_info = {
     "name": "Viewport QuickTheme",
     "author": "Spectral Vectors",
-    "version": (0, 2),
+    "version": (0, 3),
     "blender": (2, 90, 0),
     "location": "View 3D",
-    "description": "Shortcuts and presets for the viewport theme",
+    "description": "Shortcuts and presets for the Viewport theme",
     "warning": "",
     "doc_url": "",
     "category": "View 3D",
@@ -14,151 +14,141 @@ import bpy
 
 def setviewport(self, context):
     
-    if bpy.context.scene.vpqt_vars.presets == 'default':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = [0.4, 0.4, 0.4, 0.301961]
-        bpy.context.scene.vpqt_vars.line_color3 = [0, 0, 0]
-        bpy.context.scene.vpqt_vars.color1 = [0.224,0.224,0.224]
-        bpy.context.scene.vpqt_vars.color2 = (0,0,0)
-        bpy.context.scene.vpqt_vars.bgtype = 'SINGLE_COLOR'
-        
-        
-    if bpy.context.scene.vpqt_vars.presets == 'blackout':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = (0.8,0.8,0.8,0.3)
-        bpy.context.scene.vpqt_vars.line_color3 = (0.8,0.8,0.8)
-        bpy.context.scene.vpqt_vars.color1 = (0,0,0)
-        bpy.context.scene.vpqt_vars.color2 = (0.2,0.2,0.2)
-        bpy.context.scene.vpqt_vars.bgtype = 'SINGLE_COLOR'
-        
-        
-    if bpy.context.scene.vpqt_vars.presets == 'whiteout':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = (0,0,0,1)
-        bpy.context.scene.vpqt_vars.line_color3 = (0,0,0)
-        bpy.context.scene.vpqt_vars.color1 = (1,1,1)
-        bpy.context.scene.vpqt_vars.color2 = (0.2,0.2,0.2)
-        bpy.context.scene.vpqt_vars.bgtype = 'SINGLE_COLOR'
-        
-        
-    if bpy.context.scene.vpqt_vars.presets == 'blueprint':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = (0.8,0.8,0.8,0.3)
-        bpy.context.scene.vpqt_vars.line_color3 = (0.8,0.8,0.8)
-        bpy.context.scene.vpqt_vars.color1 = (0,0,0.7)
-        bpy.context.scene.vpqt_vars.color2 = (0,0,0.2)
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
-        
-        
-    if bpy.context.scene.vpqt_vars.presets == 'matrix':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = [0, 0.8, 0, 0.3]
-        bpy.context.scene.vpqt_vars.line_color3 = (0,0.8,0)
-        bpy.context.scene.vpqt_vars.color1 = [0.02, 0.133, 0]
-        bpy.context.scene.vpqt_vars.color2 = [0.004, 0.05, 0]
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
-        
-        
-    if bpy.context.scene.vpqt_vars.presets == 'hollywood':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = [0.672443, 0.608, 0.000000,0.3]
-        bpy.context.scene.vpqt_vars.line_color3 = [0.672443, 0.608, 0.000000]
-        bpy.context.scene.vpqt_vars.color1 = [0.3, 0.15, 0.000000]
-        bpy.context.scene.vpqt_vars.color2 = [0.000000, 0.000000, 0.54480]
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
-        
-    if bpy.context.scene.vpqt_vars.presets == 'tropicalia':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = [0,0,0,0.5]
-        bpy.context.scene.vpqt_vars.line_color3 = [0, 0, 0.000000]
-        bpy.context.scene.vpqt_vars.color1 = [0.5, 0.5, 0.000000]
-        bpy.context.scene.vpqt_vars.color2 = [0.000000, 0.2, 0.0]
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
-        
-    if bpy.context.scene.vpqt_vars.presets == 'sunset':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = [0,0,0,0.5]
-        bpy.context.scene.vpqt_vars.line_color3 = [0, 0, 0.000000]
-        bpy.context.scene.vpqt_vars.color1 = [0.5, 0.5, 0.000000]
-        bpy.context.scene.vpqt_vars.color2 = [0.2, 0.02, 0.0]
-        bpy.context.scene.vpqt_vars.bgtype = 'LINEAR'
-        
-    if bpy.context.scene.vpqt_vars.presets == 'sunrise':
-        
-        bpy.context.scene.vpqt_vars.line_color4 = [0.6,0.6,0.6,0.5]
-        bpy.context.scene.vpqt_vars.line_color3 = [0.6, 0.6, 0.6]
-        bpy.context.scene.vpqt_vars.color1 = [0.2, 0.02, 0.0]
-        bpy.context.scene.vpqt_vars.color2 = [0.5, 0.5, 0.000000]
-        bpy.context.scene.vpqt_vars.bgtype = 'LINEAR'
+    vpqt_vars = bpy.context.scene.vpqt_vars
+    view_3d = bpy.context.preferences.themes[0].view_3d
 
-    if bpy.context.scene.vpqt_vars.presets == 'petal':
+    if vpqt_vars.presets == 'default':
         
-        bpy.context.scene.vpqt_vars.line_color4 = [0.7,0.2,0.7,0.5]
-        bpy.context.scene.vpqt_vars.line_color3 = [0.7, 0.2, 0.7]
-        bpy.context.scene.vpqt_vars.color1 = [0.35, 0.22, 0.36]
-        bpy.context.scene.vpqt_vars.color2 = [0.22, 0, 0.325]
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
+        vpqt_vars.line_color = [0.4, 0.4, 0.4, 0.301961]
+        vpqt_vars.color1 = [0.224,0.224,0.224]
+        vpqt_vars.color2 = (0,0,0)
+        vpqt_vars.bgtype = 'SINGLE_COLOR'
+                
+    if vpqt_vars.presets == 'blackout':
+        
+        vpqt_vars.line_color = (0.8,0.8,0.8,0.3)
+        vpqt_vars.color1 = (0,0,0)
+        vpqt_vars.color2 = (0.2,0.2,0.2)
+        vpqt_vars.bgtype = 'SINGLE_COLOR'
+                
+    if vpqt_vars.presets == 'whiteout':
+        
+        vpqt_vars.line_color = (0,0,0,1)
+        vpqt_vars.color1 = (1,1,1)
+        vpqt_vars.color2 = (0.2,0.2,0.2)
+        vpqt_vars.bgtype = 'SINGLE_COLOR'
+                
+    if vpqt_vars.presets == 'blueprint':
+        
+        vpqt_vars.line_color = (0.8,0.8,0.8,0.3)
+        vpqt_vars.color1 = (0,0,0.7)
+        vpqt_vars.color2 = (0,0,0.2)
+        vpqt_vars.bgtype = 'RADIAL'
+                
+    if vpqt_vars.presets == 'matrix':
+        
+        vpqt_vars.line_color = [0, 0.8, 0, 0.3]
+        vpqt_vars.color1 = [0.02, 0.133, 0]
+        vpqt_vars.color2 = [0.004, 0.05, 0]
+        vpqt_vars.bgtype = 'RADIAL'
+                
+    if vpqt_vars.presets == 'hollywood':
+        
+        vpqt_vars.line_color = [0.672443, 0.608, 0.000000,0.3]
+        vpqt_vars.color1 = [0.3, 0.15, 0.000000]
+        vpqt_vars.color2 = [0.000000, 0.000000, 0.54480]
+        vpqt_vars.bgtype = 'RADIAL'
+        
+    if vpqt_vars.presets == 'tropicalia':
+        
+        vpqt_vars.line_color = [0,0,0,0.5]
+        vpqt_vars.color1 = [0.5, 0.5, 0.000000]
+        vpqt_vars.color2 = [0.000000, 0.2, 0.0]
+        vpqt_vars.bgtype = 'RADIAL'
+        
+    if vpqt_vars.presets == 'sunset':
+        
+        vpqt_vars.line_color = [0,0,0,0.5]
+        vpqt_vars.color1 = [0.5, 0.5, 0.000000]
+        vpqt_vars.color2 = [0.2, 0.02, 0.0]
+        vpqt_vars.bgtype = 'LINEAR'
+        
+    if vpqt_vars.presets == 'sunrise':
+        
+        vpqt_vars.line_color = [0.6,0.6,0.6,0.5]
+        vpqt_vars.color1 = [0.2, 0.02, 0.0]
+        vpqt_vars.color2 = [0.5, 0.5, 0.000000]
+        vpqt_vars.bgtype = 'LINEAR'
 
-    if bpy.context.scene.vpqt_vars.presets == 'arctic':
+    if vpqt_vars.presets == 'petal':
         
-        bpy.context.scene.vpqt_vars.line_color4 = [0.039,0,0.231,0.6]
-        bpy.context.scene.vpqt_vars.line_color3 = [0.039, 0, 0.231]
-        bpy.context.scene.vpqt_vars.color1 = [1,1,1]
-        bpy.context.scene.vpqt_vars.color2 = [0.255, 0.267, 0.388]
-        bpy.context.scene.vpqt_vars.bgtype = 'LINEAR'
+        vpqt_vars.line_color = [0.7,0.2,0.7,0.5]
+        vpqt_vars.color1 = [0.35, 0.22, 0.36]
+        vpqt_vars.color2 = [0.22, 0, 0.325]
+        vpqt_vars.bgtype = 'RADIAL'
 
-    if bpy.context.scene.vpqt_vars.presets == 'nightsky':
+    if vpqt_vars.presets == 'arctic':
         
-        bpy.context.scene.vpqt_vars.line_color4 = [1,1,1,0.1]
-        bpy.context.scene.vpqt_vars.line_color3 = [0.8,0.8,0.8]
-        bpy.context.scene.vpqt_vars.color1 = [0.031,0,0.122]
-        bpy.context.scene.vpqt_vars.color2 = [0,0,0]
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
+        vpqt_vars.line_color = [0.039,0,0.231,0.6]
+        vpqt_vars.color1 = [1,1,1]
+        vpqt_vars.color2 = [0.255, 0.267, 0.388]
+        vpqt_vars.bgtype = 'LINEAR'
 
-    if bpy.context.scene.vpqt_vars.presets == 'synthwave':
+    if vpqt_vars.presets == 'nightsky':
         
-        bpy.context.scene.vpqt_vars.line_color4 = [0,0.204,0.525,0.3]
-        bpy.context.scene.vpqt_vars.line_color3 = [0,0.204,0.525]
-        bpy.context.scene.vpqt_vars.color1 = [0,0,0]
-        bpy.context.scene.vpqt_vars.color2 = [0.161, 0, 0.153]
-        bpy.context.scene.vpqt_vars.bgtype = 'RADIAL'
+        vpqt_vars.line_color = [0.678,0.776,1,0.3]
+        vpqt_vars.color1 = [0.031,0,0.122]
+        vpqt_vars.color2 = [0,0,0]
+        vpqt_vars.bgtype = 'RADIAL'
 
-    if bpy.context.scene.vpqt_vars.presets == 'curtaincall':
+    if vpqt_vars.presets == 'synthwave':
         
-        bpy.context.scene.vpqt_vars.line_color4 = [0.525,0.463,0,0.3]
-        bpy.context.scene.vpqt_vars.line_color3 = [0.525,0.463,0]
-        bpy.context.scene.vpqt_vars.color1 = [0.3,0,0.012]
-        bpy.context.scene.vpqt_vars.color2 = [0,0,0]
-        bpy.context.scene.vpqt_vars.bgtype = 'LINEAR'
+        vpqt_vars.line_color = [0,0.204,0.525,0.3]
+        vpqt_vars.color1 = [0,0,0]
+        vpqt_vars.color2 = [0.161, 0, 0.153]
+        vpqt_vars.bgtype = 'RADIAL'
+
+    if vpqt_vars.presets == 'curtaincall':
+        
+        vpqt_vars.line_color = [0.525,0.463,0,0.3]
+        vpqt_vars.color1 = [0.3,0,0.012]
+        vpqt_vars.color2 = [0,0,0]
+        vpqt_vars.bgtype = 'LINEAR'
     
-    line_color4 = bpy.context.scene.vpqt_vars.line_color4
-    line_color3 = (line_color4[0],line_color4[1],line_color4[2])
-    color1 = bpy.context.scene.vpqt_vars.color1
-    color2 = bpy.context.scene.vpqt_vars.color2
-    bgtype = bpy.context.scene.vpqt_vars.bgtype    
+    line_color = vpqt_vars.line_color
+    line_color3 = (line_color[0],line_color[1],line_color[2])
+    color1 = vpqt_vars.color1
+    color2 = vpqt_vars.color2
+    bgtype = vpqt_vars.bgtype    
 
-    bpy.context.preferences.themes[0].view_3d.grid = line_color4
-    bpy.context.preferences.themes[0].view_3d.wire = line_color3
-    bpy.context.preferences.themes[0].view_3d.wire_edit = line_color3
-    bpy.context.preferences.themes[0].view_3d.gp_vertex = line_color3
-    bpy.context.preferences.themes[0].view_3d.camera = line_color3
-    bpy.context.preferences.themes[0].view_3d.empty = line_color3
-    bpy.context.preferences.themes[0].view_3d.light = line_color4
-    if bpy.context.scene.vpqt_vars.presets == 'default':
-        bpy.context.preferences.themes[0].view_3d.light = (0,0,0,1)
-    bpy.context.preferences.themes[0].view_3d.speaker = line_color3
-    bpy.context.preferences.themes[0].view_3d.vertex = line_color3
-    bpy.context.preferences.themes[0].view_3d.vertex_active = line_color3
-    bpy.context.preferences.themes[0].view_3d.vertex_unreferenced = line_color3
-    bpy.context.preferences.themes[0].view_3d.handle_free = line_color3
-    bpy.context.preferences.themes[0].view_3d.handle_sel_free = line_color3
-    bpy.context.preferences.themes[0].view_3d.extra_edge_len = line_color3
-    bpy.context.preferences.themes[0].view_3d.camera_path = line_color3
-    bpy.context.preferences.themes[0].view_3d.view_overlay = line_color3
+    view_3d.grid = line_color
+    view_3d.wire = line_color3
+    view_3d.wire_edit = line_color3
+    view_3d.gp_vertex = line_color3
+
+    view_3d.camera = line_color3
+    if vpqt_vars.presets == 'default':
+        view_3d.camera = (0,0,0)
+
+    view_3d.empty = line_color3
+
+    view_3d.light = line_color
+    if vpqt_vars.presets == 'default':
+        view_3d.light = [0,0,0,1]
+
+    view_3d.speaker = line_color3
+    view_3d.vertex = line_color3
+    view_3d.vertex_active = line_color3
+    view_3d.vertex_unreferenced = line_color3
+    view_3d.handle_free = line_color3
+    view_3d.handle_sel_free = line_color3
+    view_3d.extra_edge_len = line_color3
+    view_3d.camera_path = line_color3
+    view_3d.view_overlay = line_color3
     
-    bpy.context.preferences.themes[0].view_3d.space.gradients.high_gradient = color1 # Central, Top color
-    bpy.context.preferences.themes[0].view_3d.space.gradients.gradient = color2 # Outer, Bottom color
-    bpy.context.preferences.themes[0].view_3d.space.gradients.background_type = bgtype # 'RADIAL' 'LINEAR' 'SINGLE_COLOR'
+    view_3d.space.gradients.high_gradient = color1 # Central, Top color
+    view_3d.space.gradients.gradient = color2 # Outer, Bottom color
+    view_3d.space.gradients.background_type = bgtype # 'RADIAL' 'LINEAR' 'SINGLE_COLOR'
     
 
 class ViewportQuickThemeVariables(bpy.types.PropertyGroup):
@@ -185,18 +175,11 @@ class ViewportQuickThemeVariables(bpy.types.PropertyGroup):
         update=setviewport,
     )
 
-    line_color4 : bpy.props.FloatVectorProperty(
+    line_color : bpy.props.FloatVectorProperty(
         name="Line Color",
         default=(1,1,1,0.5),
         subtype='COLOR',
         size=4
-    )
-
-    line_color3 : bpy.props.FloatVectorProperty(
-        name="Line Color",
-        default=(1,1,1),
-        subtype='COLOR',
-        size=3
     )
 
     color1 : bpy.props.FloatVectorProperty(
@@ -222,15 +205,14 @@ class ViewportQuickThemeVariables(bpy.types.PropertyGroup):
         ]
     )    
 
+
 class ViewportQuickThemePanel(bpy.types.Panel):
     """Quick Viewport Theming Shortcuts"""
     bl_label = "Viewport QuickTheme"
     bl_idname = "OBJECT_PT_viewport_quicktheme"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    #bl_context = "object"
     bl_category='QuickTheme'
-    
     
     def draw(self, context):
         layout = self.layout
