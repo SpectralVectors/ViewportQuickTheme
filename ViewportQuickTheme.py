@@ -223,7 +223,6 @@ class ViewportQuickThemePanel(bpy.types.Panel):
         layout.prop(context.preferences.themes[0].view_3d.space.gradients, "gradient", text="BG Color 2")
         layout.prop(context.preferences.themes[0].view_3d.space.gradients, "background_type", text="BG Type")
 
-
 def register():
     bpy.utils.register_class(ViewportQuickThemeVariables)
     bpy.utils.register_class(ViewportQuickThemePanel)
@@ -232,6 +231,3 @@ def register():
 def unregister():
     bpy.utils.unregister_class(ViewportQuickThemePanel)
     bpy.utils.unregister_class(ViewportQuickThemeVariables)
-
-if __name__ == "__main__":
-    register()
